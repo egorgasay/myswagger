@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Success - Swagger UI Hub</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/buttons.css">
+</head>
+
+<body>
+    <div class="hero">
+        <h1>Swagger Hub</h1>
+    </div>
+    <div class="container-wrapper">
+        <div class="container">
+            <h2 class="success-title">🎉 Upload Successful! 🎉</h2>
+            <p class="success-message">Your Swagger file has been successfully hosted.</p>
+            <div class="button-group">
+                <div class="button-group-2col">
+                    <a href="/view?filename={{ .filename }}" class="button view-button">👁️ View</a>
+                    <div class="secondary-buttons">
+                        <button id="copy-link" class="button secondary-button">🔗 Link</button>
+                        <a href="/" class="button secondary-button">🏠 Home</a>
+                        <button id="delete-swagger" class="button delete-button">🗑️ Delete</button>
+                    </div>
+                </div>
+            </div>
+            {{ if .password }}
+            <div class="password-info">
+                <h3 class="access-key-title" onclick="togglePasswordContent()">🔐 Access Key</h3>
+                <div id="password-content" class="password-content">
+                    <p id="password-display">Your access key: <strong class="highlight-text">{{ .password }}</strong></p>
+                    <p class="password-note">Please save this key securely. You'll need it to access your Swagger file.</p>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    <script>
+        document.getElementById('copy-link').addEventListener('click', function() {
+            const swaggerLink = '{{ .link }}';
+            navigator.clipboard.writeText(swaggerLink).then(function() {
+                // alert('Link copied to clipboard!');
+            }, function(err) {
+                console.error('Could not copy text: ', err);
+            });
+        });
+
+        function togglePasswordContent() {
+            const content = document.getElementById('password-content');
+            if (content.classList.contains('visible')) {
+                content.classList.remove('visible');
+            } else {
+                content.classList.add('visible');
+            }
+        }
+    </script>
+</body>
+
+</html>
