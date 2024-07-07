@@ -150,11 +150,11 @@ select:focus {
 .file-upload {
     position: relative;
     overflow: hidden;
-    margin-bottom: 15px;
+    /* margin-bottom: 5px; */
     background-color: rgba(255, 255, 255, 0.7);
     border: 1.5px dashed #3498db;
     border-radius: 8px;
-    padding: 20px;
+    padding: 40px;
     text-align: center;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -180,9 +180,6 @@ select:focus {
 }
 
 .password-options {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
     background-color: rgba(52, 152, 219, 0.1);
     border-radius: 8px;
     padding: 10px;
@@ -193,39 +190,19 @@ select:focus {
     background-color: rgba(52, 152, 219, 0.2);
 }
 
-.password-options label {
-    display: flex;
-    align-items: center;
+.password-options summary {
     cursor: pointer;
-    font-size: 0.9rem;
-    margin: 0;
+    /* font-weight: 500; */
     color: var(--primary-color);
+    padding: 5px 0;
 }
 
-.password-options input[type="checkbox"] {
-    margin-right: 10px;
-    width: 18px;
-    height: 18px;
-    appearance: none;
-    border: 2px solid var(--primary-color);
-    border-radius: 4px;
-    outline: none;
-    transition: all 0.3s ease;
-    position: relative;
+.secure-settings-content {
+    margin-top: 10px;
 }
 
-.password-options input[type="checkbox"]:checked {
-    background-color: var(--primary-color);
-}
-
-.password-options input[type="checkbox"]:checked::before {
-    content: '\2713';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    font-size: 12px;
+.password-fields {
+    margin-top: 10px;
 }
 
 .password-input {
@@ -240,14 +217,14 @@ select:focus {
 .generate-password {
     display: flex;
     align-items: center;
-    margin-top: 10px;
+    padding-bottom: 10px;
 }
 
 .generate-password label {
     display: flex;
     align-items: center;
     cursor: pointer;
-    font-size: 0.9rem;
+    /* font-size: 0.9rem; */
 }
 
 .generate-password input[type="checkbox"] {
@@ -299,7 +276,6 @@ select:focus {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     color: #333;
-    /* Added for better text visibility */
 }
 
 .password-info:hover {
@@ -309,7 +285,6 @@ select:focus {
 
 .access-key-title {
     color: #1a5f8d;
-    /* Darkened for better contrast */
     font-size: 1.3rem;
     cursor: pointer;
     margin-bottom: 1rem;
@@ -318,23 +293,19 @@ select:focus {
 
 .access-key-title:hover {
     color: #154c70;
-    /* Darkened hover color */
 }
 
 .highlight-text {
     background-color: #ffe082;
-    /* Darkened for better contrast */
     padding: 4px 8px;
     border-radius: 4px;
     font-weight: bold;
     color: #5d4037;
-    /* Darkened for better readability */
 }
 
 .password-note {
     font-size: 0.95rem;
     color: #333;
-    /* Darkened for better visibility */
     margin-top: 1rem;
     line-height: 1.5;
 }
@@ -348,4 +319,95 @@ select:focus {
 .password-content.visible {
     display: block;
     opacity: 1;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::after {
+    content: '\2713';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 14px;
+}
+
+input[type="checkbox"]:hover {
+    border-color: var(--primary-color);
+}
+
+input[type="checkbox"]:focus {
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.3);
+}
+
+.new-or-upload {
+    display: flex;
+    gap: 10px;
+}
+
+.file-upload {
+    flex: 1;
+    border: 2px dashed var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload:hover {
+    background-color: rgba(52, 152, 219, 0.1);
+}
+
+.file-upload input[type="file"] {
+    display: none;
+}
+
+.file-upload-text {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.new-button {
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.new-button:hover {
+    transform: translateY(-2px);
+}
+
+hr {
+    margin: 10px 0;
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #3498db, transparent);
 }

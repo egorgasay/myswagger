@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Swagger UI Hub</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@30;400;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 
@@ -16,36 +16,53 @@
     <div class="container-wrapper">
         <div class="container">
             <h2>Host Your Swagger</h2>
-            <form action="/upload" method="post" enctype="multipart/form-data"><label for="file">Select your Swagger file</label>
-                <div class="file-upload" id="drop-zone">
-                    <input type="file" id="file" name="file" accept=".yaml,.json" required>
-                    <span class="file-upload-text">Tap to select or drop your file here</span>
-                </div>
-                <div class="password-options">
-                    <label for="use-password">
-                        <input type="checkbox" id="use-password" name="use-password">Secure with Access Key 
-                    </label>
-                </div>
-                <div id="password-fields" style="display: none; margin-top: -10px; margin-bottom: 10px;">
-                    <label for="upload-password">Create Your Access Key</label>
-                    <input class="password-input" type="password" id="upload-password" name="password" placeholder="Enter a secure access key">
-                    <div class="generate-password">
-                        <label for="generate-password">
-                            <input type="checkbox" id="generate-password" name="generate-password">Generate Secure Key 
-                        </label>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <!-- <label for="file">Select your Swagger file</label> -->
+                <div class="new-or-upload">
+                    <div class="file-upload" id="drop-zone">
+                        <input type="file" id="file" name="file" accept=".yaml,.json" required>
+                        <span class="file-upload-text">Tap to select or drop your file here</span>
                     </div>
+                    <p style="justify-content: center; display: flex; align-items: center;">OR</p>
+                    <button type="button" class="new-button" onclick="window.location.href='/editor'">NEW</button>
                 </div>
-                <label for="expires">Set expiration time</label>
+
+                <label for="expires">Expiration time</label>
                 <select id="expires" name="expires">
                     <option value="15min">15 minutes</option>
                     <option value="3h">3 hours</option>
                     <option value="1day">1 day</option>
                 </select>
-                <button type="submit" class="cta-button">Submit</button>
+
+                <div class="password-options">
+                    <details>
+                        <summary>
+                            <label for="use-password">Secure Settings</label>
+                        </summary>
+                        <div class="secure-settings-content">
+                            <div style="margin-top: 10px;">
+                                <input type="checkbox" id="read-once" name="read-once">Read once
+                            </div>
+                            <div style="margin-top: 10px;">
+                                <input type="checkbox" id="one-reader" name="one-reader">One reader
+                            </div>
+                            <div class="password-fields">
+                                <label for="upload-password">Specify Access Key</label>
+                                <input class="password-input" type="password" id="upload-password" name="password" placeholder="Enter a secure access key">
+                                <div class="generate-password">
+                                    <label for="generate-password">
+                                            <input type="checkbox" id="generate-password" name="generate-password">Auto  
+                                        </label>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+                <button type="submit " class="cta-button ">Submit</button>
             </form>
         </div>
     </div>
-    <script src="/static/js/script.js"></script>
+    <script src="/static/js/script.js "></script>
 </body>
 
 </html>

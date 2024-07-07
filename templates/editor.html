@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ace Editor</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+    <!-- <link rel="stylesheet" href="/static/css/buttons.css"> -->
+    <link rel="stylesheet" href="/static/css/editor.css">
+
+</head>
+
+<body>
+
+    <body ng-app="app" ng-controller="ctrl" ng-class="{'split':editor.splitMode}">
+        <div class="editor">
+            <!-- <iframe src="https://rawgit.com/mrdoob/three.js/master/examples/webgl_lines_dashed.html"></iframe> -->
+            <div ng-style="{opacity:editor.opacity*.01}" ui-ace="{
+      useWrapMode : editor.useWrapMode,
+      showGutter: editor.gutter,
+      theme:editor.theme,
+      mode: editor.mode,
+      onLoad: aceLoaded,
+      onChange: aceChanged
+    }" ng-model='value'></div>
+        </div>
+
+        <div class="control">
+            <div class="mode-selector">
+                <select id="mode-selector" ng-model="editor.mode">
+                    <option value="yaml" selected>YAML</option>
+                    <option value="json">JSON</option>
+                </select>
+            </div>
+
+            <button class="button view-button done-button" onclick="saveFile()">Done</button>
+        </div>
+
+    </body>
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js'></script>
+    <script src='https://ace.c9.io/build/src-min-noconflict/ace.js'></script>
+    <script src='https://angular-ui.github.io/ui-ace/dist/ui-ace.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.5/dat.gui.min.js'></script>
+
+    <script src="/static/js/editor.js"></script>
+
+</body>
+
+</html>

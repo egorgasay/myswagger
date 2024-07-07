@@ -100,5 +100,9 @@ func main() {
 		})
 	})
 
+	router.GET("/editor", func(c *gin.Context) {
+		c.HTML(http.StatusOK, "editor.html", gin.H{})
+	})
+
 	router.Run(":8080")
 }
