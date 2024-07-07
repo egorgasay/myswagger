@@ -411,3 +411,35 @@ hr {
     height: 1px;
     background: linear-gradient(to right, transparent, #3498db, transparent);
 }
+
+.new-file {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 2px solid var(--primary-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+}
+
+.filename {
+    font-weight: bold;
+}
+
+.file-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    padding: 1px 5px;
+    /* border: 1px solid var(--primary-color); */
+    /* border-radius: 3px; */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+    font-size: 2.2rem;
+}

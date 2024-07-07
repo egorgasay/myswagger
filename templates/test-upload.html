@@ -15,10 +15,17 @@
     </div>
     <div class="container-wrapper">
         <div class="container">
-            <h2>Host Your Swagger</h2>
+            <h2>🌐 Host Your Swagger</h2>
             <form action="/upload" method="post" enctype="multipart/form-data">
                 <!-- <label for="file">Select your Swagger file</label> -->
-                <div class="new-or-upload">
+                <div class="new-file" style="display: none;" id="new-file">
+                    <span class="filename" id="filename">Your file (New)</span>
+                    <div class="file-actions">
+                        <button class="edit-button" onclick="window.location.href='/editor?file={{ .filename }}'">📝</button>
+                        <button class="delete-button" onclick="deleteFile('{{ .filename }}')">❌</button>
+                    </div>
+                </div>
+                <div class="new-or-upload" id="new-or-upload">
                     <div class="file-upload" id="drop-zone">
                         <input type="file" id="file" name="file" accept=".yaml,.json" required>
                         <span class="file-upload-text">Tap to select or drop your file here</span>
@@ -32,6 +39,12 @@
                     <option value="15min">15 minutes</option>
                     <option value="3h">3 hours</option>
                     <option value="1day">1 day</option>
+                    <option value="7days">7 days (⭐ Premium)</option>
+                    <option value="14days">14 days (⭐ Premium)</option>
+                    <option value="1month">1 month (⭐ Premium)</option>
+                    <option value="3months">3 months (⭐ Premium)</option>
+                    <option value="6months">6 months (⭐ Premium)</option>
+                    <option value="1year">1 year (⭐ Premium)</option>
                 </select>
 
                 <div class="password-options">

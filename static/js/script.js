@@ -56,7 +56,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function updateFileUploadText(fileName) {
-        fileUploadText.textContent = fileName;
+        const newFileDiv = document.getElementById('new-file');
+        const newOrUploadDiv = document.getElementById('new-or-upload');
+        const filenameSpan = document.getElementById('filename');
+
+        newFileDiv.style.display = 'flex';
+        newOrUploadDiv.style.display = 'none';
+        filenameSpan.textContent = fileName;
     }
 
     // Handle file selection via the file input
